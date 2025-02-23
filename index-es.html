@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Cybersecurity Framework</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10 pt-3">
+                    <div class="jumbotron bg-dark p-5 rounded-2">
+                        <h2 class="text-light">
+                            Marco de trabajo para incorporar ciberseguridad en ambientes de Edge Computing e Internet
+                            de las Cosas (IoT) para la Industria Inteligente
+                        </h2>
+                        <br/>
+                        <p class="text-light" style="font-size: 18px">
+                            Con el fin de clarificar el propósito del marco de trabajo y generar una visión común para
+                            el desarrollo de esta evaluación, se presenta a continuación una breve descripción de la
+                            relación entre Industria inteligente, Edge Computing e Internet de las cosas, y
+                            posteriormente los retos de ciberseguridad asociados a dichos ecosistemas.
+                        </p>
+                        <!--
+                        <p>
+                            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                        </p>-->
+                    </div>
+                    <div class="p-4 text-justify " style="font-size: 18px">
+                        <h3>
+                            Relación entre Industria inteligente, Edge Computing e Internet de las cosas
+                        </h3>
+                        <br/>
+                        <p>
+                            Como es bien sabido, la industria inteligente se refiere a la aplicación de tecnologías avanzadas como el IoT, la inteligencia artificial (IA) y el análisis de datos para optimizar la gran mayoría de los aspectos de la producción industrial, por ejemplo: el mejoramiento de la eficiencia operativa a través de la automatización de procesos, y la optimización de la toma de decisiones gracias al análisis de grandes volúmenes de datos en tiempo real. En este sentido, la relación entre la Industria Inteligente y tecnologías como Edge Computing e Internet de las Cosas (IoT) es muy estrecha y complementaria.
+                        </p>
+                        <p>
+                            De manera particular, el IoT permite la interconexión de dispositivos físicos (sensores, actuadores, máquinas, vehículos, etc.) a través de internet, permitiendo que estos dispositivos se comuniquen entre sí y con sistemas de control centralizados. En el contexto de la industria inteligente, el IoT propicia la digitalización completa de las operaciones, facilitando acciones complejas como: 1) Monitorear en tiempo real el estado de las máquinas y los procesos, 2) Recolectar datos sobre el rendimiento, las condiciones de operación y la calidad de los productos, y 3) Optimizar la logística y el mantenimiento predictivo, reduciendo tiempos de inactividad y mejorando la eficiencia operativa.
+                        </p>
+                        <p>
+                            Por otro lado, Edge Computing se puede interpretar como un proceso que permite realizar el procesamiento de datos más cerca de donde se generan (en el borde de la red), es decir, en los propios dispositivos o en servidores cercanos, en lugar de enviar todos los datos a la nube para su procesamiento. Esto tiene varias ventajas en el contexto de la industria inteligente, incluyendo: 1) La reducción de latencia, al procesar los datos localmente, se pueden tomar decisiones más rápidas y en tiempo real, lo cual es crucial para las operaciones industriales que requieren respuestas inmediatas (por ejemplo, ajustar la velocidad de una línea de producción o detener una máquina si se detecta un fallo). 2) Menor carga en la red, ya que solo se envían los datos relevantes a la nube o al centro de control, lo que reduce el consumo de ancho de banda y mejora la eficiencia de la comunicación. Y, 3) Una mejor escalabilidad, ya que el procesamiento distribuido facilita el crecimiento de la infraestructura de la industria sin sobrecargar los sistemas centrales. Por ejemplo, los sensores de una planta industrial pueden procesar datos localmente en un dispositivo de Edge Computing (como un gateway o un micro servidor) para detectar patrones anormales o fallos potenciales, y solo envían alertas o datos importantes a la nube.
+                        </p>
+                        <p>
+                            En este sentido, se puede inferir que IoT y Edge Computing pueden colaborar para potenciar el concepto de la industria inteligente. Hipotéticamente, los dispositivos IoT recogen datos en tiempo real desde el entorno de producción, mientras que el Edge Computing permite que esos datos se procesen y analicen localmente, reduciendo la latencia y mejorando la capacidad de respuesta. asimismo, Edge Computing hace posible que la industria inteligente funcione con una mínima dependencia de la nube, permitiendo la toma de decisiones locales e inmediatas, lo que es crucial en entornos industriales donde los retrasos pueden resultar en pérdidas económicas o incluso en accidentes. Otro aspecto para considerar es que el IoT, y el Edge Computing contribuyen a la conformación de ambientes inteligentes donde una supervisión constante de los procesos industriales podría ser natural. Por ejemplo, los dispositivos IoT pueden comunicar información de manera continua y autónoma para que posteriormente, dichos datos  sean procesados rápidamente por Edge Computing, sin la necesidad de que todos los datos sean enviados a la nube, optimizando tanto los costos como los tiempos de respuesta.
+                        </p>
+                        <h3>
+                            La ciberseguridad en ambientes IoT y Edge Computing para la industria inteligente
+                        </h3>
+                        <br/>
+                        <p>
+                            A pesar de los beneficios de los ambientes industriales inteligentes que integran IoT y  Edge Computing, existen varios aspectos críticos que se deben considerar para su adecuada implementación y operabilidad eficiente y eficaz. Sin duda, uno de los más importantes es la ciberseguridad de los sistemas involucrados. En este sentido, resulta imperativo considerar que los dispositivos IoT suelen tener hardware y software limitados, lo que dificulta la implementación de mecanismos de seguridad robustos. Muchos dispositivos no reciben actualizaciones de seguridad regularmente haciéndolos muy vulnerables a ataques.
+                        </p>
+                        <p>
+                            Un escenario común involucra la falta de cifrado adecuado, tanto para los datos que se transmiten entre los dispositivos IoT como para los sistemas de Edge Computing. Esto puede ser un vector de ataque importante, ya que, si la comunicación no está cifrada, toda la información que viaje por el sistema estará comprometida. Por lo tanto, es altamente recomendable implementar sistemas de cifrado de extremo a extremo que no afecten la latencia o el rendimiento crítico de los dispositivos en tiempo real.
+                        </p>
+                        <p>
+                            Otro riesgo de ciberseguridad se presenta debido a la falta de autenticación y control de acceso. En muchos entornos industriales suelen encontrarse estrategias de autentificación débiles y controles de acceso inadecuados lo cual se traduce a vulnerabilidades de acceso no autorizado a sistemas críticos. Esto es especialmente problemático cuando se manejan plataformas de Edge Computing que interconectan múltiples dispositivos con aplicaciones y servicios en la nube. Esta situación hace evidente la necesidad de desarrollar mecanismos de autenticación y controles de acceso más robustos para proteger cada componente del sistema. Adicionalmente, las arquitecturas de Edge Computing tienden a estar distribuidas y menos centralizadas, lo que dificulta la implementación de soluciones de seguridad uniformes. La falta de visibilidad sobre los dispositivos distribuidos y el uso de múltiples plataformas aumenta el riesgo de brechas de seguridad. La situación se agrava a medida que se implementan más dispositivos IoT y plataformas de Edge Computing en el sistema, volviéndolo más difícil la visibilidad completa del tráfico y las actividades. Esto puede dificultar la detección temprana de intrusiones y comportamientos anómalos.
+                        </p>
+                        <h3>
+                            El propósito del marco de trabajo propuesto
+                        </h3>
+                        <br/>
+                        <p>
+                            Considerando el contexto anterior, a través del marco de trabajo para incorporar ciberseguridad en ambientes de Edge Computing e Internet de las Cosas (IoT) para la Industria Inteligente, se pretende generar un punto de partida para integrar soluciones de seguridad eficaces, eficientes y confiables centradas en la protección de dispositivos IoT, la gestión segura de datos, y la implementación de controles robustos en arquitecturas Edge Computing.
+                        </p>
+                        <p>
+                            Para lograrlo, el marco de trabajo entrelaza coherentemente SecDevOps  y el Marco de ciberseguridad de NIST, aprovechando las similitudes y propósitos compartidos por ambas estrategias. SecDevOps es un enfoque que combina las prácticas de desarrollo de software (DevOps) con una integración más profunda de la seguridad. En lugar de dejar la responsabilidad de la seguridad solo a una parte del equipo, SecDevOps promueve que todos los miembros del equipo, desde desarrolladores hasta recién contratados, adopten principios de seguridad en todas las fases del ciclo de vida del software, minimizando riesgos y evitando problemas de seguridad más adelante. Este enfoque incluye dos pilares fundamentales: 1) Seguridad como código (SaC). Y, 2) Infraestructura como código (IaC). Así, el objetivo de SecDevOps en el contexto de IoT y Edge Computing es construir aplicaciones y sistemas que no solo sean eficientes, sino que también sean resilientes a los ataques cibernéticos, garantizando que las vulnerabilidades sean gestionadas desde las primeras fases del desarrollo y no en etapas posteriores.
+                        </p>
+                        <p>
+                            Por su parte, el marco de ciberseguridad del NIST proporciona directrices clave para ayudar a las organizaciones a gestionar los riesgos y proteger sus redes y datos. Este marco se organiza en cinco áreas fundamentales:1) Identificar, 2) Proteger, 3) Detectar, 4) Responder, y 5) Recuperar.
+                        </p>
+                        <p>
+                            En este sentido, el marco de trabajo propuesto se visualiza como un alternativa básica pero confiable para implementar ciberseguridad en ambientes de Edge Computing e IoT particularmente en el ámbito de la industria inteligente, al fomentar y favorecer la implementación de estrategias como:
+                        </p>
+                        <ul>
+                            <li class="list-item">
+                                Seguridad integrada en el ciclo de vida del desarrollo (SecDevOps): Adoptar un enfoque donde la seguridad esté presente desde la fase de diseño y se mantenga a lo largo de todo el ciclo de vida del software.
+                            </li>
+                            <li class="list-item">
+                                Gestión de riesgos centrada en la red: Implementar soluciones de seguridad que permitan la visibilidad y control de los dispositivos IoT dentro de la red, detectando posibles vulnerabilidades antes de que se conviertan en amenazas.
+                            </li>
+                            <li class="list-item">
+                                Automatización de tareas de seguridad: Integrar herramientas de automatización que gestionen las actualizaciones de seguridad, las configuraciones de red y las pruebas de penetración de manera eficiente.
+                            </li>
+                            <li class="list-item">
+                                Cifrado y autenticación robustos: Asegurar que todos los datos transferidos desde los dispositivos IoT estén cifrados tanto en tránsito como en reposo y que los dispositivos cuenten con métodos de autenticación y autorización más fuertes.
+                            </li>
+                            <li class="list-item">
+                                Adopción del marco NIST: Implementar las áreas clave del marco NIST de Ciberseguridad para gestionar la seguridad de manera holística, cubriendo desde la identificación y protección hasta la respuesta y recuperación ante incidentes.
+                            </li>
+                            <li class="list-item">
+                                Estándares y certificaciones: Considerar estándares industriales específicos y regulaciones de seguridad, como el estándar IEC 62443, para garantizar la resiliencia de los sistemas.
+                            </li>
+                            <li class="list-item">
+                                Tecnologías emergentes: Utilizar tecnologías emergentes como la inteligencia artificial y el aprendizaje automático para mejorar la detección de amenazas y la respuesta ante incidentes.
+                            </li>
+                        </ul>
+                        <p>
+                            Se pretende que este enfoque integral contribuya a mitigar los riesgos inherentes a la adopción de Edge Computing e IoT, protegiendo tanto a las organizaciones como a los usuarios finales de los riesgos de ciberseguridad emergentes en ambientes de la industria inteligente.
+                        </p>
+                        <br/>
+                        <div class="card">
+                            <div class="card-header bg-dark text-light">
+                                Consulta en framework conceptual de ciberseguridad propuesto
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a class="btn btn-primary btn-large" href="framework-es.html">Versión en Español</a>
+                                    <a class="btn btn-secondary btn-large" href="framework-en.html">English Version</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

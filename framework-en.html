@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cybersecurity Framework</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .chart--container {
+      min-height: 150px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .zc-ref {
+      display: none;
+    }
+  </style>
+</head>
+
+<body style="background: #f0f0f0f0">
+<h1 style="text-align: center;">
+  Cybersecurity Conceptual Framework Applied to Edge Computing and Internet of Things Environments
+</h1>
+
+<!-- CHART CONTAINER -->
+<div id="myChart" class="chart--container">
+  <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+</div>
+<script>
+  ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // window:load event for Javascript to run after HTML
+  // because this Javascript is injected into the document head
+  window.addEventListener('load', () => {
+    // Javascript code to execute after DOM content
+    let chartData = [
+      /*{
+      id: 'flare',
+      text: 'Secure',
+      parent: ''
+    }, */
+      {
+        id: 'secure',
+        text: 'Govern',
+        parent: '',
+        value: '101'
+      }, {
+        id: 'identify',
+        text: 'Identify',
+        parent: 'secure',
+      },
+      {
+        id: 'protect',
+        text: 'Protect',
+        parent: 'secure',
+      },
+      {
+        id: 'detect',
+        text: 'Detect',
+        parent: 'secure',
+      },
+      {
+        id: 'respondrecover',
+        text: 'Respond & Recover',
+        parent: 'secure',
+      },
+      {
+        id: 'plan',
+        text: 'Plan',
+        parent: 'identify',
+        value: 100
+      },
+      {
+        id: 'build',
+        text: 'Build',
+        parent: 'protect',
+        value: 50
+      },
+      {
+        id: 'security-controls',
+        text: 'Security Controls',
+        parent: 'build',
+        value: 25
+      },
+      {
+        id: 'standards',
+        text: 'Standards',
+        parent: 'security-controls',
+        value: 12.5
+      },
+      {
+        id: 'best-practices',
+        text: 'Best Practices',
+        parent: 'security-controls',
+        value: 12.5
+      },
+      {
+        id: 'data-protection',
+        text: 'Data Protection',
+        parent: 'build',
+        value: 25
+      },
+      {
+        id: 'encryption',
+        text: 'Encryption',
+        parent: 'data-protection',
+        value: 12.5
+      },
+      {
+        id: 'awareness',
+        text: 'Awareness',
+        parent: 'data-protection',
+        value: 12.5
+      },
+      {
+        id: 'verify',
+        text: 'Verify',
+        parent: 'protect',
+        value: 50
+      },
+      {
+        id: 'testing',
+        text: 'Testing',
+        parent: 'verify',
+        value: 50
+      },
+      {
+        id: 'penetration',
+        text: 'Penetration Testing',
+        parent: 'testing',
+        value: 16.66
+      },
+      {
+        id: 'performance',
+        text: 'Performance',
+        parent: 'testing',
+        value: 16.66
+      },
+      {
+        id: 'functional',
+        text: 'Functional requirements',
+        parent: 'testing',
+        value: 16.66
+      },
+      /*{
+        id: 'release-deploy',
+        text: 'Release & Deployment',
+        parent: 'protect',
+        value:50
+      },*/
+      {
+        id: 'monitor',
+        text: 'Monitor',
+        parent: 'detect',
+        value:100
+      },
+      {
+        id: 'operate',
+        text: 'Release, Deploy & Operate',
+        parent: 'respondrecover',
+        value:100
+      },
+      {
+        id: 'incident',
+        text: 'Response and Recover Plan',
+        parent: 'operate',
+        value:50
+      },
+      {
+        id: 'design-plan',
+        text: 'Design',
+        parent: 'incident',
+        value:16.66
+      },
+      {
+        id: 'excecution-plan',
+        text: 'Execution',
+        parent: 'incident',
+        value:16.66
+      },
+      {
+        id: 'improvement-plan',
+        text: 'Assestment',
+        parent: 'incident',
+        value:16.66
+      },
+      {
+        id: 'release-deploy',
+        text: 'Delivery',
+        parent: 'operate',
+        value:50
+      },
+      {
+        id: 'integration',
+        text: 'Continuous Integration',
+        parent: 'release-deploy',
+        value:25
+      },
+      {
+        id: 'integration',
+        text: 'Continuous Delivery',
+        parent: 'release-deploy',
+        value:25
+      },
+      {
+        id: 'realtime',
+        text: 'Realtime Monitoring',
+        parent: 'monitor',
+        value:50
+      },
+      {
+        id: 'vulnerability',
+        text: 'Vulnerability Scanning',
+        parent: 'realtime',
+        value:16.66
+      },
+      {
+        id: 'threat',
+        text: 'Threat Detection',
+        parent: 'realtime',
+        value: 16.66
+      },
+      {
+        id: 'alerting',
+        text: 'Alerting',
+        parent: 'realtime',
+        value:16.66
+      },
+      {
+        id: 'logs',
+        text: 'Log Management',
+        parent: 'monitor',
+        value:50
+      },
+      {
+        id: 'analysis',
+        text: 'Analysis & Identification',
+        parent: 'logs',
+        value:50
+      },
+      {
+        id: 'assets',
+        text: 'Asset',
+        parent: 'plan',
+        value:33.33
+      },
+      {
+        id: 'edgecomputing',
+        text: 'Requirements',
+        parent: 'plan',
+        value:33.33
+      },
+      {
+        id: 'humanmachine',
+        text: 'Stakeholders',
+        parent: 'plan',
+        value:33.33
+      },
+      {
+        id: 'actives',
+        text: 'Identification',
+        parent: 'assets',
+        value:16.65
+      },
+      {
+        id: 'security-requirements',
+        text: 'Functional and Security Requirements',
+        parent: 'edgecomputing',
+        value:33.3
+      },
+      {
+        id: 'collaboration',
+        text: 'Collaboration and Integration',
+        parent: 'humanmachine',
+        value:33.33
+      },
+      {
+        id: 'risk',
+        text: 'Risk Assessment',
+        parent: 'assets',
+        value:16.65
+      },
+    ];
+    // full ZingChart schema can be found here:
+    // https://www.zingchart.com/docs/api/json-configuration/
+    let chartConfig = {
+      type: 'sunburst',
+      title: {
+        text: ""
+      },
+      options: {
+        //sizeFactor: 0.5,
+        /*flat: true,*/
+        root: 'secure',
+        widths: [90, 70, 50, 70, 100],
+        palette:['#7da1c4','#003b49', '#1b365d', '#5d3754', '#1d4289'],
+        slice: 0,
+        space: 0
+      },
+      plot: {
+        tooltip: {
+          text: '%t',
+        },
+        valueBox: {
+          //backgroundColor: '#000000',
+          text: '%data-vbtext',
+          color: ['#FFFFFF'],
+          fontSize: '12px',
+          visible: null,
+          rules: [
+            {
+              rule: '%v == 101',
+              fontColor: '#000000',
+              fontSize: '26px'
+              //offsetR: '50%',
+              //placement: 'in',
+            },
+          ]
+        }
+      },
+      scaleR: {
+        refAngle: 270 //relative to the starting 90 degree position.
+      },
+      series: chartData
+    };
+
+    // render chart
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig,
+      height: '100%',
+      width: '100%',
+    });
+  });
+</script>
+
+<div class="container" style="margin-top: 20px; padding-bottom: 20px;">
+
+  <br/>
+  <div class="row">
+    <div class="accordion" id="accordionExampleOneOne">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOneOne">
+          <button class="accordion-button collapsed" style="background: #7da1c4CC;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneOne" aria-expanded="false" aria-controls="collapseOneOne">
+            <h4 style="color:#000000">Govern</h4>
+          </button>
+        </h2>
+        <div id="collapseOneOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExampleOne">
+          <div class="accordion-body">
+            <h5>Govern</h5>
+            <p>
+              Aligned with the 'Govern' phase of the NIST 2.0 Framework and as a central part of the proposed
+              Cybersecurity Framework, this phase involves establishing a robust governance structure that aligns
+              cybersecurity policies with organizational objectives, risk management strategies, and compliance
+              requirements. This phase emphasizes the need for clear roles and responsibilities, ensuring that
+              stakeholders understand their obligations in managing the cybersecurity risks associated with
+              interconnected devices and edge computing systems. It also involves developing and implementing policies
+              that address the unique challenges posed by the dynamic nature of IoT environments, such as data privacy,
+              device authentication, and incident response, while fostering a culture of security awareness and continuous
+              improvement to adapt to evolving threats and technological advancements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row">
+    <div class="accordion" id="accordionExample" >
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" style="background: #003b49CC;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneTwo" aria-expanded="true" aria-controls="collapseOneTwo">
+            <h4 style="color:#ffffff">Identify - Plan</h4>
+          </button>
+        </h2>
+        <div id="collapseOneTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <h5>Identify</h5>
+            <p>
+              It focuses on developing a comprehensive understanding of the organization's assets, risks, and
+              cybersecurity requirements. This involves identifying and categorizing all IoT devices, edge computing
+              resources, and associated data flows to create an inventory that highlights vulnerabilities and potential
+              threats. Organizations must assess their risk environment by considering the potential impact of cyber
+              incidents on operational continuity, data integrity, and privacy. Furthermore, this phase emphasizes the
+              importance of understanding specific regulatory and compliance obligations for IoT and edge computing,
+              enabling organizations to effectively prioritize their cybersecurity efforts and establish a solid
+              foundation for risk management and protection strategies tailored to the complexities of Industry 5.0.
+            </p>
+            <h5>Plan</h5>
+            <p>
+              It involves strategically defining security requirements and integrating them into the development and
+              deployment processes from the outset. This phase emphasizes the importance of collaboration among
+              cross-functional teams (including security, development, and operations) to identify potential security
+              risks associated with interconnected devices and edge systems. Organizations must assess the unique
+              challenges posed by IoT environments, such as device diversity, data privacy, and regulatory compliance,
+              to create a comprehensive security framework that guides the design and implementation of secure
+              architectures. Additionally, the PLAN phase includes the establishment of clear security policies,
+              threat modeling, and risk assessments that inform the development lifecycle, ensuring that security
+              considerations are integrated at every stage of the process. By proactively addressing security in the
+              planning phase, organizations can enhance their resilience against cyber threats and foster a culture of
+              security awareness in the Industry 5.0 environment.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Assets</strong>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It includes the identification and management of assets, such as hardware, software, and data, in order to
+            understand which elements require protection.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <strong>Requirements</strong>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Conduct risk assessments to identify vulnerabilities and threats that may affect the organization's assets.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            <strong>Stakeholders</strong>
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It involves collaboration among development, security, and operations teams to ensure that security
+            considerations are integrated into planning and design.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <!-- Content here -->
+  <div class="row">
+    <div class="accordion" id="accordionExampleThree">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOneThree">
+          <button class="accordion-button collapsed" type="button" style="background: #1b365dCC;" data-bs-toggle="collapse" data-bs-target="#collapseOneThree" aria-expanded="true" aria-controls="collapseOne">
+            <h4 style="color:#ffffff">Protect - Build and Verify</h4>
+          </button>
+        </h2>
+        <div id="collapseOneThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <h5>Protect (Proteger)</h5>
+            <p>
+              It focuses on implementing appropriate safeguards to ensure the confidentiality, integrity, and
+              availability of critical systems and data. This phase involves deploying security measures such as access
+              controls, encryption, and secure communication protocols to protect IoT devices and edge computing
+              infrastructure against unauthorized access and cyber threats. Organizations must also establish robust
+              identity and access management practices to ensure that only authorized users and devices can interact
+              with sensitive data and systems. Additionally, this phase emphasizes the importance of continuous
+              monitoring and regular updates of security configurations, as well as training and awareness programs for
+              employees that foster a culture of security. By proactively addressing vulnerabilities and implementing
+              protective measures, organizations can enhance their resilience against cyber incidents in the smart industry.
+            </p>
+            <h5>Build and Verify</h5>
+            <p>
+              They focus on secure development and validation of applications and systems that interact with
+              interconnected devices. One of the primary activities of this phase is for development teams to implement
+              secure coding practices and leverage automation tools to integrate security controls directly into the
+              software development lifecycle, ensuring that IoT applications are resilient against vulnerabilities and
+              threats. Additionally, rigorous testing and validation processes must be employed to assess the security
+              posture of the developed applications. This phase enables organizations to ensure that their IoT solutions
+              are not only functional but also secure, thereby enhancing trust and security in the context of Industry 5.0."
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwoThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoThree" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Security Controls</strong>
+          </button>
+        </h2>
+        <div id="collapseTwoThree" class="accordion-collapse collapse" aria-labelledby="headingTwoThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It focuses on integrating appropriate security controls into the processes, so that security measures are
+            incorporated into the architecture from the beginning.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThreeThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeThree" aria-expanded="false" aria-controls="collapseThreeThree">
+            <strong>Data Protection</strong>
+          </button>
+        </h2>
+        <div id="collapseThreeThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It includes the implementation of data protection measures, such as encrypting sensitive information both
+            at rest and in transit, integrating them into all processes, both technological and interpersonal.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFourThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourThree" aria-expanded="false" aria-controls="collapseThree">
+            <strong>Testing</strong>
+          </button>
+        </h2>
+        <div id="collapseFourThree" class="accordion-collapse collapse" aria-labelledby="headingThreeThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It includes conducting security tests, such as static and dynamic application testing, to identify and
+            correct vulnerabilities before deployment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Content here -->
+  <br/>
+  <div class="row">
+    <div class="accordion" id="accordionExampleFour">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOneFour">
+          <button class="accordion-button collapsed" type="button" style="background: #5d3754CC;" data-bs-toggle="collapse" data-bs-target="#collapseOneFour" aria-expanded="true" aria-controls="collapseOne">
+            <h4 style="color:#ffffff">Detect - Monitor</h4>
+          </button>
+        </h2>
+        <div id="collapseOneFour" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExampleFour">
+          <div class="accordion-body">
+            <h5>Detect</h5>
+            <p>
+              The Detect phase aids in the timely identification of cybersecurity events and anomalies that could
+              indicate potential threats or breaches. This phase involves implementing continuous monitoring solutions
+              that leverage advanced analytics, machine learning, and threat intelligence to detect unusual behavior
+              patterns in interconnected devices and edge systems. Organizations must establish effective logging and
+              alert mechanisms to capture relevant data from IoT devices and edge computing resources, enabling real-time
+              visibility into their security posture. Additionally, the importance of conducting regular assessments
+              and tests of detection capabilities is emphasized to ensure they can effectively identify emerging threats
+              and vulnerabilities. By enhancing their detection capabilities, organizations can respond more quickly
+              to incidents, minimizing potential damage and maintaining the operational integrity of smart industry
+              processes.
+            </p>
+            <h5>Monitor</h5>
+            <p>
+              This phase focuses on continuous monitoring and evaluations of deployed applications and systems to ensure
+              security and consistent performance. This involves implementing real-time monitoring solutions that track
+              system behavior, user activity, and network traffic across interconnected devices and edge infrastructures,
+              allowing organizations to detect anomalies and potential security threats in a timely manner.
+              By utilizing advanced analytics, machine learning, and threat intelligence, organizations can gain
+              insights into emerging vulnerabilities and attack patterns specific to IoT environments.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwoFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoFour" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Log Management</strong>
+          </button>
+        </h2>
+        <div id="collapseTwoFour" class="accordion-collapse collapse" aria-labelledby="headingTwoFour" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It includes centralized log management and analysis to facilitate the detection of anomalies and security
+            events in development and operational environments.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThreeFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeFour" aria-expanded="false" aria-controls="collapseThreeFour">
+            <strong>Real-time Monitoring</strong>
+          </button>
+        </h2>
+        <div id="collapseThreeFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#headingThreeFour">
+          <div class="accordion-body">
+            It involves continuous monitoring of applications and infrastructure to detect security issues in real time,
+            allowing for the rapid identification of potential incidents.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Content here -->
+  <br/>
+  <div class="row m-10">
+    <div class="accordion" id="accordionExampleFive">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOneFive">
+          <button class="accordion-button collapsed" type="button" style="background: #1d4289CC;" data-bs-toggle="collapse" data-bs-target="#collapseOneFive" aria-expanded="true" aria-controls="collapseOne">
+            <h4 style="color:#ffffff">Response and Recover - Release, Deploy and Operate</h4>
+          </button>
+        </h2>
+        <div id="collapseOneFive" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <h5>Response and Recover</h5>
+            <p>
+              This phase focuses on effectively managing and mitigating the impact of cybersecurity incidents, ensuring
+              a swift return to normal operations. Organizations must establish and implement incident response plans
+              that outline clear procedures for detecting, analyzing, and containing security incidents, including
+              communication protocols. This involves leveraging automated response tools and action guides tailored to
+              the unique challenges of IoT and edge computing environments. Additionally, it is essential to emphasize
+              the importance of restoring affected systems and services to their normal functioning, ensuring data
+              integrity and operational continuity. Organizations should develop and regularly test recovery plans that
+              include data backups, system restoration processes, and post-incident analysis to identify lessons learned
+              and improve future resilience.
+            </p>
+            <h5>Release, Deploy and Operate</h5>
+            <p>
+              It involves the smooth and secure transition of applications from development to production, while
+              ensuring continuous operational integrity. In the Release phase, teams prepare the application for
+              deployment by integrating security controls and compliance validations to ensure that all security
+              requirements are met before the software becomes available.
+
+              During the Deploy phase, automated deployment pipelines are used to facilitate the rapid and reliable
+              launch of IoT applications on edge devices, incorporating security measures such as configuration
+              management and vulnerability scanning to mitigate the risks associated with deployment.
+
+              Finally, in the Operate phase, organizations continuously monitor the performance and security of
+              deployed applications, leveraging real-time analytics and incident response protocols to address any
+              emerging threats or operational issues.
+
+              By integrating security throughout these phases, organizations can ensure that their IoT solutions
+              are not only deployed efficiently but also resilient against cyber threats, thereby improving their
+              overall security posture
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwoFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoFive" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Delivery</strong>
+          </button>
+        </h2>
+        <div id="collapseTwoFive" class="accordion-collapse collapse" aria-labelledby="headingTwoFour" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It emphasizes the use of CI/CD (Continuous Integration and Continuous Delivery) pipelines to automate the
+            building, testing, and deployment of applications, incorporating security controls at each stage.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThreeFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeFive" aria-expanded="false" aria-controls="collapseThreeFive">
+            <strong>Response and Recover Plan</strong>
+          </button>
+        </h2>
+        <div id="collapseThreeFive" class="accordion-collapse collapse" aria-labelledby="headingThreeFive" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            It involves the implementation of security controls and practices that can help contain and mitigate
+            incidents as they occur in the production environment, as well as planning recovery processes, such as
+            backups and failover strategies, to ensure that applications can be restored quickly and securely.
+            Additionally, it includes reviewing and analyzing incidents after they occur to identify lessons learned
+            and improve future responses.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,695 +1,122 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Cybersecurity Framework</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .chart--container {
-      min-height: 150px;
-      width: 100%;
-      height: 100%;
-    }
-
-    .zc-ref {
-      display: none;
-    }
-  </style>
-</head>
-
-<body style="background: #f0f0f0f0">
-<h1 style="text-align: center;">
-  Cybersecurity Conceptual Framework Applied to Edge Computing and Internet of Things Environments
-</h1>
-
-  <!-- CHART CONTAINER -->
-  <div id="myChart" class="chart--container">
-    <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
-  </div>
-  <script>
-    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // window:load event for Javascript to run after HTML
-    // because this Javascript is injected into the document head
-    window.addEventListener('load', () => {
-      // Javascript code to execute after DOM content
-      let chartData = [
-        /*{
-        id: 'flare',
-        text: 'Secure',
-        parent: ''
-      }, */
-        {
-        id: 'secure',
-        text: 'Govern',
-        parent: '',
-          value: '101'
-      }, {
-          id: 'identify',
-          text: 'Identify',
-          parent: 'secure',
-        },
-        {
-          id: 'protect',
-          text: 'Protect',
-          parent: 'secure',
-        },
-        {
-          id: 'detect',
-          text: 'Detect',
-          parent: 'secure',
-        },
-        {
-          id: 'respondrecover',
-          text: 'Respond & Recover',
-          parent: 'secure',
-        },
-        {
-          id: 'plan',
-          text: 'Plan',
-          parent: 'identify',
-          value: 100
-        },
-        {
-          id: 'build',
-          text: 'Build',
-          parent: 'protect',
-          value: 50
-        },
-        {
-          id: 'security-controls',
-          text: 'Security Controls',
-          parent: 'build',
-          value: 25
-        },
-        {
-          id: 'standards',
-          text: 'Standards',
-          parent: 'security-controls',
-          value: 12.5
-        },
-        {
-          id: 'best-practices',
-          text: 'Best Practices',
-          parent: 'security-controls',
-          value: 12.5
-        },
-        {
-          id: 'data-protection',
-          text: 'Data Protection',
-          parent: 'build',
-          value: 25
-        },
-        {
-          id: 'encryption',
-          text: 'Encryption',
-          parent: 'data-protection',
-          value: 12.5
-        },
-        {
-          id: 'awareness',
-          text: 'Awareness',
-          parent: 'data-protection',
-          value: 12.5
-        },
-        {
-          id: 'verify',
-          text: 'Verify',
-          parent: 'protect',
-          value: 50
-        },
-        {
-          id: 'testing',
-          text: 'Testing',
-          parent: 'verify',
-          value: 50
-        },
-        {
-          id: 'penetration',
-          text: 'Penetration Testing',
-          parent: 'testing',
-          value: 16.66
-        },
-        {
-          id: 'performance',
-          text: 'Performance',
-          parent: 'testing',
-          value: 16.66
-        },
-        {
-          id: 'functional',
-          text: 'Functional requirements',
-          parent: 'testing',
-          value: 16.66
-        },
-        /*{
-          id: 'release-deploy',
-          text: 'Release & Deployment',
-          parent: 'protect',
-          value:50
-        },*/
-        {
-          id: 'monitor',
-          text: 'Monitor',
-          parent: 'detect',
-          value:100
-        },
-        {
-          id: 'operate',
-          text: 'Release, Deploy & Operate',
-          parent: 'respondrecover',
-          value:100
-        },
-        {
-          id: 'incident',
-          text: 'Response and Recover Plan',
-          parent: 'operate',
-          value:50
-        },
-        {
-          id: 'design-plan',
-          text: 'Design',
-          parent: 'incident',
-          value:16.66
-        },
-        {
-          id: 'excecution-plan',
-          text: 'Execution',
-          parent: 'incident',
-          value:16.66
-        },
-        {
-          id: 'improvement-plan',
-          text: 'Assestment',
-          parent: 'incident',
-          value:16.66
-        },
-        {
-          id: 'release-deploy',
-          text: 'Delivery',
-          parent: 'operate',
-          value:50
-        },
-        {
-          id: 'integration',
-          text: 'Continuous Integration',
-          parent: 'release-deploy',
-          value:25
-        },
-        {
-          id: 'integration',
-          text: 'Continuous Delivery',
-          parent: 'release-deploy',
-          value:25
-        },
-        {
-          id: 'realtime',
-          text: 'Realtime Monitoring',
-          parent: 'monitor',
-          value:50
-        },
-        {
-          id: 'vulnerability',
-          text: 'Vulnerability Scanning',
-          parent: 'realtime',
-          value:16.66
-        },
-        {
-          id: 'threat',
-          text: 'Threat Detection',
-          parent: 'realtime',
-          value: 16.66
-        },
-        {
-          id: 'alerting',
-          text: 'Alerting',
-          parent: 'realtime',
-          value:16.66
-        },
-        {
-          id: 'logs',
-          text: 'Log Management',
-          parent: 'monitor',
-          value:50
-        },
-        {
-          id: 'analysis',
-          text: 'Analysis & Identification',
-          parent: 'logs',
-          value:50
-        },
-        {
-          id: 'assets',
-          text: 'Asset',
-          parent: 'plan',
-          value:33.33
-        },
-        {
-          id: 'edgecomputing',
-          text: 'Requirements',
-          parent: 'plan',
-          value:33.33
-        },
-        {
-          id: 'humanmachine',
-          text: 'Stakeholders',
-          parent: 'plan',
-          value:33.33
-        },
-        {
-          id: 'actives',
-          text: 'Identification',
-          parent: 'assets',
-          value:16.65
-        },
-        {
-          id: 'security-requirements',
-          text: 'Functional and Security Requirements',
-          parent: 'edgecomputing',
-          value:33.3
-        },
-        {
-          id: 'collaboration',
-          text: 'Collaboration and Integration',
-          parent: 'humanmachine',
-          value:33.33
-        },
-        {
-          id: 'risk',
-          text: 'Risk Assessment',
-          parent: 'assets',
-          value:16.65
-        },
-      ];
-      // full ZingChart schema can be found here:
-      // https://www.zingchart.com/docs/api/json-configuration/
-      let chartConfig = {
-        type: 'sunburst',
-        title: {
-          text: ""
-        },
-        options: {
-          //sizeFactor: 0.5,
-          /*flat: true,*/
-          root: 'secure',
-          widths: [90, 70, 50, 70, 100],
-          //palette:['#2f4b7c','#2874a6', '#003f5c', '#665191', '#a05195'],
-          //palette:['#1d4289','#41b6e6', '#003b49', '#007a78', '#5d3754'],
-          palette:['#7da1c4','#003b49', '#1b365d', '#5d3754', '#1d4289'],
-          slice: 0,
-          space: 0
-        },
-        plot: {
-          tooltip: {
-            text: '%t',
-          },
-          valueBox: {
-            //backgroundColor: '#000000',
-            text: '%data-vbtext',
-            color: ['#FFFFFF'],
-            fontSize: '12px',
-            visible: null,
-            rules: [
-              {
-                rule: '%v == 101',
-                fontColor: '#000000',
-                fontSize: '26px'
-                //offsetR: '50%',
-                //placement: 'in',
-              },
-            ]
-          }
-        },
-        scaleR: {
-          refAngle: 270 //relative to the starting 90 degree position.
-        },
-        series: chartData
-      };
-
-      // render chart
-      zingchart.render({
-        id: 'myChart',
-        data: chartConfig,
-        height: '100%',
-        width: '100%',
-      });
-    });
-  </script>
-
-  <div class="container" style="margin-top: 20px; padding-bottom: 20px;">
-
-    <br/>
-    <div class="row">
-      <div class="accordion" id="accordionExampleOneOne">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOneOne">
-            <button class="accordion-button collapsed" style="background: #2f4b7cCC;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneOne" aria-expanded="false" aria-controls="collapseOneOne">
-              <h4 style="color:#ffffff">Govern</h4>
-            </button>
-          </h2>
-          <div id="collapseOneOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExampleOne">
-            <div class="accordion-body">
-              <h5>Govern (Gobernanza)</h5>
-              <p>
-                Alineado con la fase de "Govern del Framework NIST 2.0" y como parte central del Framework de
-                Ciberseguridad propuesto. Esta fase implica el establecer una estructura de gobernanza robusta que alinee las políticas
-                de ciberseguridad con los objetivos organizacionales, las estrategias de gestión de riesgos y los
-                requisitos de cumplimiento. Esta fase enfatiza la necesidad de roles y responsabilidades claras,
-                asegurando que las partes interesadas comprendan sus obligaciones en la gestión de los riesgos de
-                ciberseguridad asociados con dispositivos interconectados y sistemas de computación en el borde. También
-                implica desarrollar e implementar políticas que aborden los desafíos únicos que plantea la naturaleza
-                dinámica de los entornos de IoT, como la privacidad de los datos, la autenticación de dispositivos y la
-                respuesta a incidentes, al tiempo que se fomenta una cultura de concienciación sobre la seguridad y
-                mejora continua para adaptarse a las amenazas en evolución y los avances tecnológicos.
-              </p>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Cybersecurity Framework</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10 pt-3">
+                    <div class="jumbotron bg-dark p-5 rounded-2">
+                        <h2 class="text-light">
+                            Framework for incorporating cybersecurity in Edge Computing and Internet of Things (IoT)
+                            environments for Smart Industry.
+                        </h2>
+                        <br/>
+                        <p class="text-light" style="font-size: 18px">
+                            In order to clarify the purpose of the framework and generate a common vision for the development of this assessment, a brief description of the relationship between Smart Industry, Edge Computing, and the Internet of Things is presented below, followed by the cybersecurity challenges associated with these ecosystems.
+                        </p>
+                        <!--
+                        <p>
+                            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                        </p>-->
+                    </div>
+                    <div class="p-4 text-justify " style="font-size: 18px">
+                        <h3>
+                            Relationship between Smart Industry, Edge Computing, and the Internet of Things.
+                        </h3>
+                        <br/>
+                        <p>
+                            As is well known, Smart Industry refers to the application of advanced technologies such as IoT, artificial intelligence (AI), and data analytics to optimize the vast majority of aspects of industrial production. For example, it enhances operational efficiency through process automation and optimizes decision-making thanks to the analysis of large volumes of data in real time. In this sense, the relationship between Smart Industry and technologies like Edge Computing and the Internet of Things (IoT) is very close and complementary.
+                        </p>
+                        <p>
+                            In particular, IoT enables the interconnection of physical devices (sensors, actuators, machines, vehicles, etc.) through the internet, allowing these devices to communicate with each other and with centralized control systems. In the context of Smart Industry, IoT facilitates the complete digitalization of operations, enabling complex actions such as: 1) Real-time monitoring of the status of machines and processes, 2) Collecting data on performance, operating conditions, and product quality, and 3) Optimizing logistics and predictive maintenance, reducing downtime and improving operational efficiency.
+                        </p>
+                        <p>
+                            On the other hand, Edge Computing can be interpreted as a process that allows data processing to occur closer to where it is generated (at the edge of the network), meaning on the devices themselves or on nearby servers, rather than sending all data to the cloud for processing. This has several advantages in the context of Smart Industry, including: 1) Reduced latency; by processing data locally, faster and real-time decisions can be made, which is crucial for industrial operations that require immediate responses (for example, adjusting the speed of a production line or stopping a machine if a fault is detected). 2) Lower network load, as only relevant data is sent to the cloud or control center, reducing bandwidth consumption and improving communication efficiency. And 3) Better scalability, as distributed processing facilitates the growth of industrial infrastructure without overloading central systems. For example, sensors in an industrial plant can process data locally on an Edge Computing device (such as a gateway or microserver) to detect abnormal patterns or potential failures, and only send alerts or important data to the cloud.
+                        </p>
+                        <p>
+                            In this sense, it can be inferred that IoT and Edge Computing can collaborate to enhance the concept of Smart Industry. Hypothetically, IoT devices collect real-time data from the production environment, while Edge Computing allows that data to be processed and analyzed locally, reducing latency and improving responsiveness. Furthermore, Edge Computing enables Smart Industry to operate with minimal dependence on the cloud, allowing for local and immediate decision-making, which is crucial in industrial environments where delays can result in economic losses or even accidents. Another aspect to consider is that IoT and Edge Computing contribute to the formation of intelligent environments where constant monitoring of industrial processes could be natural. For example, IoT devices can continuously and autonomously communicate information so that this data can then be quickly processed by Edge Computing, without the need for all data to be sent to the cloud, optimizing both costs and response times.
+                        </p>
+                        <h3>
+                            Cybersecurity in IoT and Edge Computing environments for Smart Industry.
+                        </h3>
+                        <br/>
+                        <p>
+                            Despite the benefits of smart industrial environments that integrate IoT and Edge Computing, there are several critical aspects that must be considered for their proper implementation and efficient and effective operation. Undoubtedly, one of the most important is the cybersecurity of the systems involved. In this regard, it is imperative to consider that IoT devices often have limited hardware and software, which makes it difficult to implement robust security mechanisms. Many devices do not receive security updates regularly, making them highly vulnerable to attacks.
+                        </p>
+                        <p>
+                            A common scenario involves the lack of adequate encryption, both for the data transmitted between IoT devices and for Edge Computing systems. This can be a significant attack vector, as unencrypted communication means that all information traveling through the system is compromised. Therefore, it is highly recommended to implement end-to-end encryption systems that do not affect the latency or critical performance of real-time devices.
+                        </p>
+                        <p>
+                            Another cybersecurity risk arises from the lack of authentication and access control. In many industrial environments, weak authentication strategies and inadequate access controls are often found, leading to vulnerabilities that allow unauthorized access to critical systems. This is especially problematic when dealing with Edge Computing platforms that interconnect multiple devices with applications and services in the cloud. This situation highlights the need to develop more robust authentication mechanisms and access controls to protect each component of the system. Additionally, Edge Computing architectures tend to be distributed and less centralized, making it difficult to implement uniform security solutions. The lack of visibility over distributed devices and the use of multiple platforms increases the risk of security breaches. The situation worsens as more IoT devices and Edge Computing platforms are implemented in the system, making it more challenging to achieve complete visibility of traffic and activities. This can hinder the early detection of intrusions and anomalous behaviors.
+                        </p>
+                        <h3>
+                            The objective of the proposed framework.
+                        </h3>
+                        <br/>
+                        <p>
+                            Considering the previous context, the framework for incorporating cybersecurity in Edge Computing and Internet of Things (IoT) environments for Smart Industry aims to provide a starting point for integrating effective, efficient, and reliable security solutions focused on protecting IoT devices, securely managing data, and implementing robust controls in Edge Computing architectures.
+                        </p>
+                        <p>
+                            To achieve this, the framework coherently intertwines SecDevOps and the NIST Cybersecurity Framework, leveraging the similarities and shared purposes of both strategies. SecDevOps is an approach that combines software development practices (DevOps) with a deeper integration of security. Instead of leaving the responsibility for security to just one part of the team, SecDevOps promotes that all team members, from developers to new hires, adopt security principles throughout all phases of the software development lifecycle, minimizing risks and preventing security issues later on. This approach includes two fundamental pillars: 1) Security as Code (SaC), and 2) Infrastructure as Code (IaC). Thus, the goal of SecDevOps in the context of IoT and Edge Computing is to build applications and systems that are not only efficient but also resilient to cyberattacks, ensuring that vulnerabilities are managed from the early stages of development rather than at later stages.
+                        </p>
+                        <p>
+                            The NIST Cybersecurity Framework provides key guidelines to help organizations manage risks and protect their networks and data. This framework is organized into five fundamental areas: 1) Identify, 2) Protect, 3) Detect, 4) Respond, and 5) Recover.
+                        </p>
+                        <p>
+                            In this sense, the proposed framework is envisioned as a basic yet reliable alternative for implementing cybersecurity in Edge Computing and IoT environments, particularly in the realm of Smart Industry, by promoting and facilitating the implementation of strategies such as:
+                        </p>
+                        <ul>
+                            <li class="list-item">
+                                Integrated security in the software development lifecycle (SecDevOps): Adopting an approach where security is present from the design phase and is maintained throughout the entire software lifecycle.
+                            </li>
+                            <li class="list-item">
+                                Network-centered risk management: Implementing security solutions that provide visibility and control over IoT devices within the network, detecting potential vulnerabilities before they become threats.
+                            </li>
+                            <li class="list-item">
+                                Automation of security tasks: Integrating automation tools that efficiently manage security updates, network configurations, and penetration testing.
+                            </li>
+                            <li class="list-item">
+                                Robust encryption and authentication: Ensuring that all data transferred from IoT devices is encrypted both in transit and at rest, and that devices have stronger authentication and authorization methods.
+                            </li>
+                            <li class="list-item">
+                                Adoption of the NIST Framework: Implementing the key areas of the NIST Cybersecurity Framework to manage security holistically, covering everything from identification and protection to response and recovery from incidents.
+                            </li>
+                            <li class="list-item">
+                                Standards and certifications: Considering specific industry standards and security regulations, such as the IEC 62443 standard, to ensure the resilience of systems.
+                            </li>
+                            <li class="list-item">
+                                Emerging technologies: Utilizing emerging technologies such as artificial intelligence and machine learning to enhance threat detection and incident response.
+                            </li>
+                        </ul>
+                        <p>
+                            This comprehensive approach aims to mitigate the inherent risks associated with the adoption of Edge Computing and IoT, protecting both organizations and end users from emerging cybersecurity risks in Smart Industry environments.
+                        </p>
+                        <br/>
+                        <div class="card">
+                            <div class="card-header bg-dark text-light">
+                                Check the proposed cybersecurity conceptual framework.
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a class="btn btn-primary btn-large" href="framework-en.html">English Version</a>
+                                    <a class="btn btn-secondary btn-large" href="framework-es.html">Versión en Español</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <br/>
-
-    <div class="row">
-      <div class="accordion" id="accordionExample" >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed" style="background: #2874a6CC;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneTwo" aria-expanded="true" aria-controls="collapseOneTwo">
-              <h4 style="color:#ffffff">Identify - Plan</h4>
-            </button>
-          </h2>
-          <div id="collapseOneTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <h5>Identify (Identificar)</h5>
-              <p>
-                Se centra en desarrollar una comprensión integral de los activos, riesgos y requisitos de
-                ciberseguridad de la organización. Implica, identificar y categorizar todos los dispositivos
-                IoT, los recursos de computación en el borde y los flujos de datos asociados para crear un inventario
-                que resalte las vulnerabilidades y las amenazas potenciales. Las organizaciones deben evaluar su entorno
-                de riesgos al considerar el impacto potencial de los incidentes cibernéticos en la continuidad operativa,
-                la integridad de los datos y la privacidad. Además, en esta fase enfatiza la importancia de comprender las
-                obligaciones regulatorias y de cumplimiento específicas para IoT y la computación en el borde, lo que
-                permite a las organizaciones priorizar sus esfuerzos de ciberseguridad de manera efectiva y establecer
-                una base sólida para las estrategias de gestión de riesgos y protección adaptadas a las complejidades de
-                la Industria 5.0.
-              </p>
-              <h5>Plan (Planear)</h5>
-              <p>
-                 Implica definir estratégicamente los requisitos de seguridad e integrarlos en los procesos de desarrollo
-                y despliegue desde el principio. Esta fase enfatiza la importancia de la colaboración entre equipos
-                multifuncionales (incluidos seguridad, desarrollo y operaciones), para identificar los riesgos de
-                seguridad potenciales asociados con dispositivos interconectados y sistemas en el borde. Las
-                organizaciones deben evaluar los desafíos únicos que plantean los entornos de IoT, como la diversidad
-                de dispositivos, la privacidad de los datos y el cumplimiento normativo, para crear un marco de seguridad
-                integral que guíe el diseño e implementación de arquitecturas seguras. Además, la fase de PLAN incluye
-                el establecimiento de políticas de seguridad claras, modelado de amenazas y evaluaciones de riesgos que
-                informen el ciclo de vida del desarrollo, asegurando que las consideraciones de seguridad estén integradas
-                en cada etapa del proceso. Al abordar proactivamente la seguridad en la fase de planificación, las
-                organizaciones pueden mejorar su resiliencia frente a amenazas cibernéticas y fomentar una cultura de
-                concienciación sobre la seguridad en el entorno de la Industria 5.0.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              <strong>Assets (Recursos)</strong>
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Incluye la identificación y gestión de activos, tales como hardware, software y datos, con el fin de comprender qué elementos requieren protección
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <strong>Requirements (Requerimientos)</strong>
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Realizar evaluaciones de riesgos para identificar vulnerabilidades y amenazas que puedan afectar los activos de la organización.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-              <strong>Stakeholders (Involucrados)</strong>
-            </button>
-          </h2>
-          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Involucra la colaboración entre los equipos de desarrollo, seguridad y operaciones para garantizar que las consideraciones de seguridad se integren en la planificación y el diseño.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br/>
-    <!-- Content here -->
-    <div class="row">
-      <div class="accordion" id="accordionExampleThree">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOneThree">
-            <button class="accordion-button collapsed" type="button" style="background: #003f5cCC;" data-bs-toggle="collapse" data-bs-target="#collapseOneThree" aria-expanded="true" aria-controls="collapseOne">
-              <h4 style="color:#ffffff">Protect - Build and Verify</h4>
-            </button>
-          </h2>
-          <div id="collapseOneThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <h5>Protect (Proteger)</h5>
-              <p>
-                Se centra en implementar salvaguardias adecuadas para garantizar la confidencialidad, integridad y
-                disponibilidad de los sistemas y datos críticos. Esta fase implica desplegar medidas de seguridad como
-                controles de acceso, cifrado y protocolos de comunicación segura para proteger los dispositivos IoT y
-                la infraestructura de computación en el borde contra accesos no autorizados y amenazas cibernéticas.
-                Las organizaciones también deben establecer prácticas robustas de gestión de identidad y acceso para
-                asegurar que solo los usuarios y dispositivos autorizados puedan interactuar con datos y sistemas
-                sensibles. Además, esta fase enfatiza la importancia de la monitorización continua y las
-                actualizaciones regulares de las configuraciones de seguridad, así como programas de
-                capacitación y concienciación para empleados que fomenten una cultura de seguridad. Al abordar
-                proactivamente las vulnerabilidades e implementar medidas de protección, las organizaciones pueden
-                mejorar su resiliencia frente a incidentes cibernéticos de la industria inteligente.
-              </p>
-              <h5>Build and Verify (Construir y Verificar)</h5>
-              <p>
-                Se centran en el desarrollo seguro y la validación de aplicaciones y sistemas que interactúan con
-                dispositivos interconectados. Una de las actividades primordiales de esta fase es que los equipos de desarrollo implementen prácticas de
-                codificación segura y aprovechen herramientas de automatización para integrar controles de seguridad
-                directamente en el ciclo de vida del desarrollo de software, asegurando que las aplicaciones del IoT sean
-                resilientes frente a vulnerabilidades y amenazas. Además, deben emplearse procesos rigurosos de prueba y validación
-                para evaluar la postura de seguridad de las aplicaciones desarrolladas. Esta fase permite organizaciones el asegurar
-                que sus soluciones IoT no solo sean funcionales, sino también seguras,
-                mejorando así la confianza y la seguridad en el contexto de la Industria 5.0.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwoThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoThree" aria-expanded="false" aria-controls="collapseTwo">
-              <strong>Security Controls (Controles de Seguridad)</strong>
-            </button>
-          </h2>
-          <div id="collapseTwoThree" class="accordion-collapse collapse" aria-labelledby="headingTwoThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Se enfoca en integrar controles de seguridad adecuados en los procesos, de manera que las medidas de seguridad se incorporen a la arquitectura desde el inicio
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThreeThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeThree" aria-expanded="false" aria-controls="collapseThreeThree">
-              <strong>Data Protection (Protección de Datos)</strong>
-            </button>
-          </h2>
-          <div id="collapseThreeThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Incluye la implementación de medidas de protección de datos, como el cifrado de información sensible tanto
-              en reposo como en tránsito, integrándolas en todos los procesos, tanto tecnológicos como interpersonales.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFourThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourThree" aria-expanded="false" aria-controls="collapseThree">
-              <strong>Testing (Pruebas)</strong>
-            </button>
-          </h2>
-          <div id="collapseFourThree" class="accordion-collapse collapse" aria-labelledby="headingThreeThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Incluye la realización de pruebas de seguridad, como las pruebas de aplicaciones estáticas y dinámicas,
-              para identificar y corregir vulnerabilidades antes del despliegue.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Content here -->
-    <br/>
-    <div class="row">
-      <div class="accordion" id="accordionExampleFour">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOneFour">
-            <button class="accordion-button collapsed" type="button" style="background: #665191CC;" data-bs-toggle="collapse" data-bs-target="#collapseOneFour" aria-expanded="true" aria-controls="collapseOne">
-              <h4 style="color:#ffffff">Detect - Monitor</h4>
-            </button>
-          </h2>
-          <div id="collapseOneFour" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExampleFour">
-            <div class="accordion-body">
-              <h5>Detect (Detectar)</h5>
-              <p>
-                La fase Detectar ayuda en la identificación
-                oportuna de eventos y anomalías de ciberseguridad que podrían indicar amenazas o brechas potenciales.
-                Esta fase implica el implementar soluciones de monitoreo continuo que aprovechen análisis avanzados,
-                aprendizaje automático e inteligencia de amenazas para detectar patrones de comportamiento inusuales
-                en dispositivos interconectados y sistemas en el borde. Las organizaciones deben establecer mecanismos
-                efectivos de registro y alerta para capturar datos relevantes de los dispositivos IoT y los recursos
-                de computación en el borde, lo que permite una visibilidad en tiempo real de su postura de seguridad.
-                Además, también se resalta la importancia de realizar evaluaciones y pruebas regulares de las capacidades
-                de detección para garantizar que puedan identificar de manera efectiva las amenazas y vulnerabilidades
-                emergentes. Al mejorar sus capacidades de detección, las organizaciones pueden responder más rápidamente
-                a los incidentes, minimizando el daño potencial y manteniendo la integridad operativa de los procesos
-                de la industria inteligente.
-              </p>
-              <h5>Monitor (Monitorear)</h5>
-              <p>
-               Esta fase se enfoca en la supervisión y evaluaciones continuas de las aplicaciones y sistemas desplegados
-                para garantizar la seguridad y el rendimiento constante. Esto implica el implementar soluciones de
-                monitoreo en tiempo real que rastreen el comportamiento del sistema, la actividad del usuario y el
-                tráfico de red a través de dispositivos interconectados e infraestructuras en el borde, lo que permite
-                a las organizaciones detectar anomalías y amenazas de seguridad potenciales de manera oportuna.
-
-                Al utilizar análisis avanzados, aprendizaje automático e inteligencia de amenazas, las organizaciones
-                pueden obtener información sobre vulnerabilidades emergentes y patrones de ataque específicos de los
-                entornos de IoT.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwoFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoFour" aria-expanded="false" aria-controls="collapseTwo">
-              <strong>Log Management (Gestión de bitácoras)</strong>
-            </button>
-          </h2>
-          <div id="collapseTwoFour" class="accordion-collapse collapse" aria-labelledby="headingTwoFour" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Incluye la gestión y análisis centralizados de registros para facilitar la detección de anomalías y eventos
-              de seguridad en los entornos de desarrollo y operación.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThreeFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeFour" aria-expanded="false" aria-controls="collapseThreeFour">
-              <strong>Real-time Monitoring (Monitoreo en tiempo real)</strong>
-            </button>
-          </h2>
-          <div id="collapseThreeFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#headingThreeFour">
-            <div class="accordion-body">
-              Involucra el monitoreo continuo de aplicaciones e infraestructura para detectar problemas de seguridad en
-              tiempo real, lo que permite una identificación rápida de incidentes potenciales.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Content here -->
-    <br/>
-    <div class="row m-10">
-      <div class="accordion" id="accordionExampleFive">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOneFive">
-            <button class="accordion-button collapsed" type="button" style="background: #a05195CC;" data-bs-toggle="collapse" data-bs-target="#collapseOneFive" aria-expanded="true" aria-controls="collapseOne">
-              <h4 style="color:#ffffff">Response and Recover - Release, Deploy and Operate</h4>
-            </button>
-          </h2>
-          <div id="collapseOneFive" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <h5>Response and Recover (Responder y Recuperar)</h5>
-              <p>
-                Esta fase se enfoca en gestionar y mitigar de manera efectiva el impacto de los incidentes de ciberseguridad,
-                asegurando un retorno ágil a las operaciones normales. Las organizaciones
-                deben establecer e implementar planes de respuesta a incidentes que describan procedimientos claros
-                para detectar, analizar y contener incidentes de seguridad, incluidos protocolos de comunicación.
-                Esto implica aprovechar herramientas de
-                respuesta automatizadas y guías de acción adaptadas a los desafíos únicos de los entornos de IoT y
-                computación en el borde. Además, es fundamental resaltar la importancia de restaurar los sistemas y
-                servicios afectados a su funcionamiento normal, garantizando la integridad de los datos y la continuidad
-                de las operaciones. Las organizaciones deben desarrollar y probar regularmente planes de recuperación que
-                incluyan copias de seguridad de datos, procesos de restauración de sistemas y análisis post-incidente,
-                con el fin de identificar lecciones aprendidas y mejorar la resiliencia futura.
-              </p>
-              <h5>Release, Deploy and Operate (Lanzamiento, Despliegue y Operaciones)</h5>
-              <p>
-                Involucra la transición fluida y segura de las aplicaciones desde el desarrollo hasta la producción,
-                asegurando al mismo tiempo la integridad operativa continua.
-                En la fase de Release, los equipos preparan
-                la aplicación para su despliegue integrando controles de seguridad y validaciones de cumplimiento para
-                garantizar que se cumplan todos los requisitos de seguridad antes de que el software esté disponible.
-
-                Durante la fase de Deploy, se utilizan pipelines de despliegue automatizados para facilitar el
-                lanzamiento rápido y confiable de aplicaciones IoT en dispositivos en el borde, incorporando medidas
-                de seguridad como la gestión de configuraciones y el escaneo de vulnerabilidades para mitigar los
-                riesgos asociados con el despliegue.
-
-                Finalmente, en la fase de Operate, las organizaciones monitorean
-                continuamente el rendimiento y la seguridad de las aplicaciones desplegadas, aprovechando análisis en
-                tiempo real y protocolos de respuesta a incidentes para abordar cualquier amenaza emergente o problema
-                operativo.
-
-                Al integrar la seguridad a lo largo de estas fases, las organizaciones pueden garantizar
-                que sus soluciones IoT no solo se desplieguen de manera eficiente, sino que también sean resilientes
-                frente a amenazas cibernéticas, mejorando así la postura de seguridad general.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwoFive">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoFive" aria-expanded="false" aria-controls="collapseTwo">
-              <strong>Delivery (Entrega)</strong>
-            </button>
-          </h2>
-          <div id="collapseTwoFive" class="accordion-collapse collapse" aria-labelledby="headingTwoFour" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Enfatiza el uso de pipelines de CI/CD (Continuous Integration and Continuous Delivery)
-              para automatizar la construcción, prueba y despliegue de aplicaciones, incorporando controles de
-              seguridad en cada etapa.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThreeFive">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeFive" aria-expanded="false" aria-controls="collapseThreeFive">
-              <strong>Response and Recover Plan (Plan de recuperación y respuesta)</strong>
-            </button>
-          </h2>
-          <div id="collapseThreeFive" class="accordion-collapse collapse" aria-labelledby="headingThreeFive" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              Involucra la implementación de controles y prácticas de seguridad que pueden ayudar a contener y mitigar
-              incidentes a medida que ocurren en el entorno de producción, así como la planificación de procesos de
-              recuperación, como copias de seguridad y estrategias de conmutación por error, para garantizar que las
-              aplicaciones puedan ser restauradas de manera rápida y segura, además de revisar y analizar los incidentes
-              después de que ocurren para identificar lecciones aprendidas y mejorar las respuestas futuras.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+    </body>
 </html>
