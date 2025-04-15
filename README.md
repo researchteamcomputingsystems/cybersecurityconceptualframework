@@ -1,6 +1,6 @@
-Cybersecurity Conceptual Framework Applied to Edge Computing and Internet of Things Environments
+# Cybersecurity Conceptual Framework Applied to Edge Computing and Internet of Things Environments
 
-Introduction
+## Introduction
 
 This Framework, based on the NIST Cybersecurity Framework (NIST CSF), centers around governance by considering the following key points:
 	•	Technological Governance: Ensures that infrastructure, devices, and Edge & IoT platforms comply with security standards by using identity management mechanisms, network segmentation, data encryption, and continuous monitoring. Implementing secure architectures along with patch management and vulnerability response policies strengthens resilience against cyber threats.
@@ -11,7 +11,7 @@ Note: By adopting this Cybersecurity Framework, companies, organizations, and in
 
 ⸻
 
-Compliance for Identify - Plan
+## Compliance for Identify - Plan
 
 Asset inventory and environment topology
 	•	Identify and document all IoT devices, Edge Computing nodes, networks, platforms, and software involved.
@@ -50,7 +50,7 @@ Security training and awareness
 
 ⸻
 
-Compliance for Protect - Build and Verify
+## Compliance for Protect - Build and Verify
 
 Security by design and attack surface protection
 	•	Apply the principle of “security by design” in the development and integration of IoT/Edge systems.
@@ -94,7 +94,7 @@ Security testing and continuous evaluation
 
 ⸻
 
-Compliance for Detect - Monitor
+## Compliance for Detect - Monitor
 
 Real-time monitoring system implementation
 	•	Deploy threat detection tools (IDS/IPS, SIEM, SOAR) adapted to IoT and Edge Computing environments.
